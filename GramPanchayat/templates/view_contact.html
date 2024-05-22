@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Gram Panchayat Application Details</title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
+  <link href="{% static 'css/font-awesome.min.css'%}" rel="stylesheet" />
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>Gram Panchayat</span>
+          </a>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <section class="contact_section layout_padding">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5 col-lg-4 offset-md-1">
+          <div class="form_container">
+            <div class="heading_container">
+              <h2>Certificate  Request</h2>
+            </div>
+            
+            <table  border="2">
+                <tr>
+                    <td>Name </td>
+                    <td>Email_id</td>
+                    <td>Message </td>
+                    <td>Feedback</td>
+                </tr>
+              {% for u in userdict %}
+                <tr>
+                    <td>{{ u.Name }} </td>
+                    <td>{{ u.Email_id }} </td>
+                    <td>{{ u.Message }} </td>
+                    <td>{{ u.Feedback }} </td>
+                    <td> <a href="{% url 'contact_del' u.id %}"> Delete </a> </td>
+  
+  
+                </tr>
+                {% endfor %}
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer_container">
+    <section class="info_section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <div class="info_detail">
+              <h4>Gram Panchayat</h4>
+              <p>Service to make a bright future</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-0 ml-auto">
+            <div class="info_contact">
+              <div class="contact_link_box">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer_section">
+      <div class="container">
+        <p>&copy; <span id="displayYear"></span> Project by <a href="https://html.design/">FUEL Interns</a></p>
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>
